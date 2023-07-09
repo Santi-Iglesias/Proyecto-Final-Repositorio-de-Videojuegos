@@ -1,0 +1,9 @@
+#app {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  #gameResultSection, #gameDescriptionSection, #gameGenreSection {
+    display: none;
+    margin-top: 20px;
+  }
