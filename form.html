@@ -4,26 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="form.css">
 </head>
 <body>
-    <form id="registro">
-        <h2>Registro</h2>
-        <input type="text" name="" id="r-username" placeholder="Nombre de usuario">
-        <input type="text" name="" id="r-fullname" placeholder="Nombre completo">
-        <input type="text" name="" id="r-edad" placeholder="Edad">
-        <input type="email" name="" id="r-email" placeholder="Email">
-        <input type="password" name="" id="r-password" placeholder="Contraseña">
-        <input type="submit" value="Registrarme">
-    </form>
+    <section>
+        <form id="r-register">
+            <h2>Registro</h2>
+            <input type="text" name="" id="r-username" placeholder="Nombre de usuario">
+            <input type="text" name="" id="r-fullname" placeholder="Nombre completo">
+            <input type="text" name="" id="r-edad" placeholder="Edad">
+            <input type="email" name="" id="r-email" placeholder="Email">
+            <input type="password" name="" id="r-password" placeholder="Contraseña">
+            <input type="submit" value="Registrarme">
+        </form>
+    </section>
 
-    <form id="login">
-        <h2>Iniciar sesion</h2>
-        <input type="email" name="" id="l-email" placeholder="Email">
-        <input type="password" name="" id="l-password" placeholder="Contraseña">
-        <input type="submit" value="Iniciar sesion">
-    </form>
-
+    <section>
+        <form id="form-login">
+            <h2>Iniciar sesion</h2>
+            <input type="text" name="" id="l-identifier" placeholder="Email o nombre de usuario">
+            <input type="password" name="" id="l-password" placeholder="Contraseña">
+            <input type="submit" value="Iniciar sesion">
+        </form>
+    </section>
     <script src="index.js"></script>
+    <script src="form.js"></script>
 </body>
 </html>
