@@ -58,7 +58,7 @@ app.post("/iniciar-sesion", (req, res) => {
           if (passwordIsValid(password, user.password)){
             res.status(200).json(user)
           } else {
-            res.status(400).json({ message: "Contraseña incorrecta" })
+            res.status(400).json({ messsage: "Contraseña incorrecta" })
           }
         })
     } else {
@@ -71,7 +71,7 @@ app.post("/iniciar-sesion", (req, res) => {
           if (passwordIsValid(password, user.password)){
             res.status(200).json(user)
           } else {
-            res.status(400).json({ message: "Contraseña incorrecta" })
+            res.status(400).json({ messsage: "Contraseña incorrecta" })
           }
         })
     }
