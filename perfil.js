@@ -1,43 +1,102 @@
-// Aquí deberás utilizar una conexión a la base de datos SQL y realizar una consulta para obtener los datos del usuario.
-// Asumiendo que tienes una función llamada 'getUserData' que devuelve un objeto con el nombre y apellido del usuario.
+// Obtener referencias a los elementos del DOM
+const mainElement = document.querySelector('main');
 
-// Ejemplo de función getUserData simulada que devuelve datos ficticios:
-function getUserData() {
-    return {
-      firstName: 'fran',
-      lastName: 'cek'
-    };
-  }
-  
-  // Función para actualizar el nombre y apellido en el HTML
-  function updateUserData() {
-    const userData = getUserData();
-    const userFullName = `${userData.firstName} ${userData.lastName}`;
-    const h4Element = document.getElementById('userFullName');
-    h4Element.textContent = userFullName;
-  }
-  
-  // Llamamos a la función para actualizar los datos del usuario al cargar la página
-  window.addEventListener('DOMContentLoaded', updateUserData);
+// Datos del usuario
+const usuario = {
+  nombreUsuario: 'JohnDoe',
+  nombreCompleto: 'John Doe',
+  edad: 25,
+  email: 'johndoe@example.com',
+  wishlist: ['Juego 1', 'Juego 2', 'Juego 3'],
+  reviews: ['Review 1', 'Review 2', 'Review 3']
+};
 
+// Función para mostrar el perfil del usuario
+function mostrarPerfil() {
+  // Limpiar el contenido actual del main
+  mainElement.innerHTML = '';
 
+  // Crear elementos para mostrar los datos del usuario
+  const nombreUsuarioElement = document.createElement('h2');
+  nombreUsuarioElement.textContent = `Nombre de usuario: ${usuario.nombreUsuario}`;
 
+  const nombreCompletoElement = document.createElement('p');
+  nombreCompletoElement.textContent = `Nombre completo: ${usuario.nombreCompleto}`;
 
-// Asumiendo que tienes una función llamada 'getWishlistCount' que obtiene la cantidad de juegos en la wishlist del usuario desde la base de datos.
+  const edadElement = document.createElement('p');
+  edadElement.textContent = `Edad: ${usuario.edad}`;
 
-// Ejemplo de función getWishlistCount simulada que devuelve un número ficticio:
-function getWishlistCount() {
-  // Aquí debes realizar la consulta SQL y obtener la cantidad de juegos en la wishlist para el usuario actual.
-  // Luego, devuelve ese número.
-  return 0; // Cambiamos el valor ficticio a 0
+  const emailElement = document.createElement('p');
+  emailElement.textContent = `Email: ${usuario.email}`;
+
+  const wishlistButton = document.createElement('button');
+  wishlistButton.textContent = 'Cargar Wishlist';
+  wishlistButton.addEventListener('click', mostrarWishlist);
+
+  const reviewsButton = document.createElement('button');
+  reviewsButton.textContent = 'Mostrar Reviews';
+  reviewsButton.addEventListener('click', mostrarReviews);
+
+  // Agregar los elementos al main
+  mainElement.appendChild(nombreUsuarioElement);
+  mainElement.appendChild(nombreCompletoElement);
+  mainElement.appendChild(edadElement);
+  mainElement.appendChild(emailElement);
+  mainElement.appendChild(wishlistButton);
+  mainElement.appendChild(reviewsButton);
 }
 
-// Función para actualizar la cantidad de juegos en la wishlist en el HTML
-function updateWishlistCount() {
-  const wishlistCount = getWishlistCount();
-  const badgeElement = document.querySelector('.wishlist-count');
-  badgeElement.textContent = wishlistCount;
+// Función para mostrar la wishlist de juegos
+function mostrarWishlist() {
+  // Limpiar el contenido actual del main
+  mainElement.innerHTML = '';
+
+  // Crear elementos para mostrar la wishlist de juegos
+  const wishlistTitle = document.createElement('h3');
+  wishlistTitle.textContent = 'Wishlist de juegos';
+
+  const wishlistList = document.createElement('ul');
+  usuario.wishlist.forEach(juego => {
+    const juegoItem = document.createElement('li');
+    juegoItem.textContent = juego;
+    wishlistList.appendChild(juegoItem);
+  });
+
+  const backButton = document.createElement('button');
+  backButton.textContent = 'Volver';
+  backButton.addEventListener('click', mostrarPerfil);
+
+  // Agregar los elementos al main
+  mainElement.appendChild(wishlistTitle);
+  mainElement.appendChild(wishlistList);
+  mainElement.appendChild(backButton);
 }
 
-// Llamamos a la función para actualizar la cantidad de juegos en la wishlist al cargar la página
-window.addEventListener('DOMContentLoaded', updateWishlistCount);
+// Función para mostrar las reviews realizadas
+function mostrarReviews() {
+  // Limpiar el contenido actual del main
+  mainElement.innerHTML = '';
+
+  // Crear elementos para mostrar las reviews realizadas
+  const reviewsTitle = document.createElement('h3');
+  reviewsTitle.textContent = 'Reviews realizadas';
+
+  const reviewsList = document.createElement('ul');
+  usuario.reviews.forEach(review => {
+    const reviewItem = document.createElement('li');
+    reviewItem.textContent = review;
+    reviewsList.appendChild(reviewItem);
+  });
+
+  const backButton = document.createElement('button');
+  backButton.textContent = 'Volver';
+  backButton.addEventListener('click', mostrarPerfil);
+
+  // Agregar los elementos al main
+  mainElement.appendChild(reviewsTitle);
+  mainElement.appendChild(reviewsList);
+  mainElement.appendChild(backButton);
+}
+
+// Llamar a la función para mostrar el perfil del usuario al cargar la página
+mostrarPerfil();
