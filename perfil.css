@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  font-family: 'Roboto', sans-serif;
+  background: #a48dc9;
+
+
+}
+
+header{
+  background-color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+
+  width: 100%;
+  position: sticky;
+  top: 0;
+  left: 0;
+  color: #fff;
+  height: 60px;
+ 
+  background-color: rgb(20, 19, 19);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px;
+
+    background-color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+
+
+.label {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  padding: 5px;
+  border-radius: 10px;
+  background: linear-gradient(to right, #ffa500, #ffff00, #008000, #00ffff, #0000ff, #ee82ee);
+  align-items: center;
+  justify-content: center;
+}
+.input {
+  position: relative;
+  padding: 10px;
+  width: 450px;
+  height: 50px;
+  border-radius: 6px;
+  font-size: 22px;
+  border: none;
+  outline: none;
+  z-index: 3;
+  background-color: #ccc; /* Color inicial gris */
+  transition: background-color 0.3s; /* Transición suave */
+}
+
+.input:hover {
+  background-color: #fff; /* Color final blanco */
+}
+
+
+.input_bg {
+    position: absolute;
+    z-index: 2;
+    width: 120%;
+    height: 180%;
+    background: linear-gradient(to right, #ffa500, #ffff00, #00ffff, #000011, #ee82ee);
+    filter: blur(60px);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+.input:focus + .input_bg
+{
+  opacity: 1;
+}
+
+ul{
+  list-style: none;
+}
+ul li{
+  display: inline-block;
+  margin: 10px 0;
+}
+ul li a{
+  display: block;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 17px;
+  letter-spacing: 2px;
+  color: #fff;
+  margin: 0 10px;
+  padding: 10px 25px;
+  position: relative;
+}
+ul li a::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  background: #dc2f02;
+  z-index: -1;
+  box-shadow: 0 0 10px #dc2f02,
+              0 0 20px #dc2f02,
+              0 0 40px #dc2f02,
+              0 0 80px #dc2f02,
+              0 0 100px #dc2f02;
+  transition: 0.25s;
+}
+ul li a:hover::before{
+  width: 100%;
+}
+
+
+
+/* Estilos para el primer nav */
+.nav-1 {
+  float: left; /* Alinea el nav a la izquierda */
+}
+
+/* Estilos para el segundo nav */
+.nav-2 {
+  float: left; /* Alinea el nav a la izquierda */
+  margin-left: 20px; /* Agrega un margen a la izquierda para separarlo del primer nav */
+}
+
+/* Estilos para el tercer nav */
+.nav-3 {
+  float: right; /* Alinea el nav a la derecha */
+  margin-right: 50px; /* Mueve el nav hacia la izquierda */
+}
