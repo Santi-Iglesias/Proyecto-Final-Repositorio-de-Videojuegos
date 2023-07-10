@@ -139,3 +139,9 @@ ul li a:hover::before{
   float: right; /* Alinea el nav a la derecha */
   margin-right: 50px; /* Mueve el nav hacia la izquierda */
 }
+
+
+.logo-pagina{
+  width: 200px;
+  border-radius: 30px;
+}
