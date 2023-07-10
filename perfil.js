@@ -9,6 +9,21 @@ let usuario = {
   email: ""
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+  const gameNameInput = document.getElementById('input');
+  gameNameInput.addEventListener("keypress", (event) => {
+    console.log("Evnto")
+    if (event.key === "Enter") {
+      const gameName = gameNameInput.value.trim();
+
+      if (gameName !== "") {
+        localStorage.setItem("gameToSearch",gameName);
+        window.location.href = "index.html"
+      }
+    }
+  });
+})
+
 // Función para mostrar el perfil del usuario
 function mostrarPerfil() {
   if(localStorage.getItem("datos-de-usuario")){
@@ -29,15 +44,19 @@ function mostrarPerfil() {
   // Crear elementos para mostrar los datos del usuario
   const nombreUsuarioElement = document.createElement('h2');
   nombreUsuarioElement.textContent = `Nombre de usuario: ${usuario.username}`;
+  nombreUsuarioElement.className = "nombreUsuario";
 
   const nombreCompletoElement = document.createElement('p');
   nombreCompletoElement.textContent = `Nombre completo: ${usuario.fullname}`;
+  nombreCompletoElement.className = "nombreCompleto";
 
   const edadElement = document.createElement('p');
   edadElement.textContent = `Edad: ${usuario.edad}`;
+  edadElement.className = "edad";
 
   const emailElement = document.createElement('p');
   emailElement.textContent = `Email: ${usuario.email}`;
+  emailElement.className = "email";
 
   // const wishlistButton = document.createElement('button');
   // wishlistButton.textContent = 'Cargar Wishlist';
