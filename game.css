@@ -1,9 +1,17 @@
 #app {
-    max-width: 800px;
     margin: 0 auto;
   }
   
-  #gameResultSection, #gameDescriptionSection, #gameGenreSection {
+#gameResultSection, #gameDescriptionSection, #gameGenreSection {
     display: none;
     margin-top: 20px;
   }
+
+.imagen-juego{
+  max-width: 500px;
+}
+
+.gameName, .description, .genre, .platforms, .released, .publisher, .ageRating, .buyLinks, .website {
+  color: white;
+  margin: 5px;
+}
