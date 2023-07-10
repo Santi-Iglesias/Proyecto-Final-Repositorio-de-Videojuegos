@@ -4,6 +4,7 @@ const rFullName = document.getElementById("r-fullname")
 const rEdad = document.getElementById("r-edad")
 const rEmail = document.getElementById("r-email")
 const rPassword = document.getElementById("r-password")
+const submitButton = document.getElementById("submitButton")
 
 const formLogin = document.getElementById("form-login")
 const lIdentifier = document.getElementById("l-identifier")
@@ -44,10 +45,12 @@ formularioDeRegistro.addEventListener("submit", async (evento) => {
     password: rPassword.value
   }
 
+formularioDeRegistro.reset();
+
   const usuarioSubido = await subirDatosABD(usuario)
 
   if (usuarioSubido) {
-      console.log(usuarioSubido)
+      alert(`Usuario registrado correctamente, por favor inicia sesion`)
     }
 })
 
