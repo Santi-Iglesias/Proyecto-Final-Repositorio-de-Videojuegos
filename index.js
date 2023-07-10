@@ -43,7 +43,6 @@ app.post("/registrarse", (req, res) => {
 app.post("/iniciar-sesion", (req, res) => {
     const { identifier, password } = req.body
     const emailRegex = /[a-z0-9!#$%&'+/=?^`{|}~-]+(?:\.[a-z0-9!#$%&'+/=?^`{|}~-]+)@(?:[a-z0-9](?:[a-z0-9-][a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g
-
     function passwordIsValid(passwordFromClient, passwordFromConexion) {
       return passwordFromClient === passwordFromConexion
     }
