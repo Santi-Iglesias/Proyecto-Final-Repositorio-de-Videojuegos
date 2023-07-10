@@ -2,26 +2,36 @@
 const mainElement = document.querySelector('main');
 
 // Datos del usuario
-const usuario = {
-  nombreUsuario: 'JohnDoe',
-  nombreCompleto: 'John Doe',
-  edad: 25,
-  email: 'johndoe@example.com',
-  wishlist: ['Juego 1', 'Juego 2', 'Juego 3'],
-  reviews: ['Review 1', 'Review 2', 'Review 3']
-};
+let usuario = {
+  username: "",
+  fullname: "",
+  edad: "",
+  email: ""
+}
 
 // Función para mostrar el perfil del usuario
 function mostrarPerfil() {
+  if(localStorage.getItem("datos-de-usuario")){
+    // Si esta registrado levanto los datos
+    usuario = JSON.parse(localStorage.getItem("datos-de-usuario"));
+  } else{
+    // Si no esta registrado levanto los datos
+    usuario = {
+      username: "Usuario no existe",
+      fullname: "",
+      edad: "",
+      email: ""
+    }
+  }
   // Limpiar el contenido actual del main
   mainElement.innerHTML = '';
 
   // Crear elementos para mostrar los datos del usuario
   const nombreUsuarioElement = document.createElement('h2');
-  nombreUsuarioElement.textContent = `Nombre de usuario: ${usuario.nombreUsuario}`;
+  nombreUsuarioElement.textContent = `Nombre de usuario: ${usuario.username}`;
 
   const nombreCompletoElement = document.createElement('p');
-  nombreCompletoElement.textContent = `Nombre completo: ${usuario.nombreCompleto}`;
+  nombreCompletoElement.textContent = `Nombre completo: ${usuario.fullname}`;
 
   const edadElement = document.createElement('p');
   edadElement.textContent = `Edad: ${usuario.edad}`;
@@ -29,13 +39,13 @@ function mostrarPerfil() {
   const emailElement = document.createElement('p');
   emailElement.textContent = `Email: ${usuario.email}`;
 
-  const wishlistButton = document.createElement('button');
-  wishlistButton.textContent = 'Cargar Wishlist';
-  wishlistButton.addEventListener('click', mostrarWishlist);
+  // const wishlistButton = document.createElement('button');
+  // wishlistButton.textContent = 'Cargar Wishlist';
+  // wishlistButton.addEventListener('click', mostrarWishlist);
 
-  const reviewsButton = document.createElement('button');
-  reviewsButton.textContent = 'Mostrar Reviews';
-  reviewsButton.addEventListener('click', mostrarReviews);
+  // const reviewsButton = document.createElement('button');
+  // reviewsButton.textContent = 'Mostrar Reviews';
+  // reviewsButton.addEventListener('click', mostrarReviews);
 
   // Agregar los elementos al main
   mainElement.appendChild(nombreUsuarioElement);
