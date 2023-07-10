@@ -44,9 +44,6 @@ formularioDeRegistro.addEventListener("submit", async (evento) => {
     password: rPassword.value
   }
 
-  console.log(usuario)
-  console.log(JSON.stringify(usuario))
-
   const usuarioSubido = await subirDatosABD(usuario)
 
   if (usuarioSubido) {
@@ -64,7 +61,8 @@ formLogin.addEventListener("submit", async (evento) => {
     }
 
     if (usuarioEsValido.username) {
-        alert(`Sesion iniciada, Bienvenido ${usuario.nombre}`)
-        localStorage.setItem("datos-de-uduario", JSON.stringify(usuarioEsValido))
+        alert(`Sesion iniciada, Bienvenido ${usuarioEsValido.username}`)
+        localStorage.setItem("datos-de-usuario", JSON.stringify(usuarioEsValido))
+        window.location.href = "perfil.html"
       }
 })
