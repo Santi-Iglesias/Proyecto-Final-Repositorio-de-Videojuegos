@@ -28,21 +28,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   
     gameNameInput.addEventListener("keypress", (event) => {
+      console.log("Evnto")
       if (event.key === "Enter") {
         const gameName = gameNameInput.value.trim();
   
         if (gameName !== "") {
-          searchGameByName(gameName)
-            .then((data) => {
-              const games = data.results;
-  
-              let currentPage = 1;
-  
-              
-            })
-            .catch((error) => {
-              console.error("Error searching games:", error);
-            });
+          localStorage.setItem("gameToSearch",gameName);
+          window.location.href = "index.html"
         }
       }
     });
