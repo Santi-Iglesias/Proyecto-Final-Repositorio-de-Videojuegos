@@ -59,21 +59,38 @@ document.addEventListener("DOMContentLoaded", () => {
       paginationButtons.appendChild(button);
     }
   };
+  if (localStorage.getItem("gameToSearch") && localStorage.getItem("gameToSearch")!= "") {
+    const gameToSearch = localStorage.getItem("gameToSearch");
+    localStorage.setItem("gameToSearch","");
+    searchGameByName(gameToSearch)
+      .then((data) => {
+        const games = data.results;
+        console.log(games.length);
 
-  // Obtener todos los juegos
-  getTrendingGames()
-    .then((data) => {
-      const games = data.results;
-      console.log(games.length);
+        let currentPage = 1;
 
-      let currentPage = 1;
+        displayGames(games, currentPage);
+        createPaginationButtons(games, currentPage);
+      })
+      .catch((error) => {
+        console.error("Error fetching games:", error);
+      });
+  } else {
+    // Obtener todos los juegos
+    getTrendingGames()
+      .then((data) => {
+        const games = data.results;
+        console.log(games.length);
 
-      displayGames(games, currentPage);
-      createPaginationButtons(games, currentPage);
-    })
-    .catch((error) => {
-      console.error("Error fetching games:", error);
-    });
+        let currentPage = 1;
+
+        displayGames(games, currentPage);
+        createPaginationButtons(games, currentPage);
+      })
+      .catch((error) => {
+        console.error("Error fetching games:", error);
+      });
+  }
 
   gameNameInput.addEventListener("keypress", (event) => {
     if (event.key === "Enter") {
