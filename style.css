@@ -7,7 +7,7 @@
 }
 body{
   font-family: 'Roboto', sans-serif;
-  background: #a48dc9;
+  background: #000000;
 }
 
 
@@ -242,12 +242,12 @@ input[type="text"] {
 }
 
 .card:hover::before {
-  transform: rotate(-90deg) scaleX(1.34) scaleY(0.77);
+  transform: rotate(-180deg) scaleX(1) scaleY(1);
 }
 
 .logo-pagina{
-  width: 200px;
-  border-radius: 30px;
+  width: 100px;
+  margin-left: 40px;
 }
 
 .all-games{
